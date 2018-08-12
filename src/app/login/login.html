@@ -1,26 +1,27 @@
 <ion-header>
     <ion-toolbar color='primary'>
+            <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                  </ion-buttons>
         <ion-title>Login</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="login-container">
+    <ion-card>
+        <ion-list>
+            <ion-item>
+                <ion-label position='floating'>Username</ion-label>
+                <ion-input type="text" [(ngModel)]='userName'></ion-input>
+            </ion-item>
 
-
-    <ion-list>
-
-        <ion-item>
-            <ion-label>Username</ion-label>
-            <ion-input type="text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>Password</ion-label>
-            <ion-input type="password"></ion-input>
-        </ion-item>
-    </ion-list>
-
-    <div padding>
-        <ion-button shape="round" color="primary" fill="outline">Sign In</ion-button>
-    </div>
+            <ion-item>
+                <ion-label position='floating'>Password</ion-label>
+                <ion-input type="password"></ion-input>
+            </ion-item>
+            <div padding>
+                <ion-button (click)='onLogin()' expand="block" color="primary">Sign In</ion-button>
+            </div>
+        </ion-list>
+    </ion-card>
 </ion-content>

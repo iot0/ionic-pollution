@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-divider>
+      <ion-label>
+        <ion-text color="dark">
+          <h2>FULL NAME</h2>
+        </ion-text>
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-input required type="text" placeholder="Renjith"></ion-input>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>
+        <ion-text color="dark">
+          <h2>ADDRESS</h2>
+        </ion-text>
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-textarea required type="text" placeholder="Ulloor , Trivandrum"></ion-textarea>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>
+        <ion-text color="dark">
+          <h2> LATITUDE AND LONGITUDE</h2>
+        </ion-text>
+        <p>Select from the map.</p>
+      </ion-label>
+      <ion-fab-button (click)='selectLocation()'>
+        <ion-icon name="compass"></ion-icon>
+      </ion-fab-button>
+    </ion-item-divider>
+    <ion-item>
+      <ion-input required type="text" placeholder="23.455,45.555" disabled></ion-input>
+    </ion-item>
+    <div padding>
+      <ion-button color="primary" expand="full" (click)='onRegister()'>Sign Up</ion-button>
+    </div>
+  </ion-list>
+</ion-content>
