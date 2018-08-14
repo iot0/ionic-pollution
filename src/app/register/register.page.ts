@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController, ToastController } from "@ionic/angular";
-import { LocationPage } from "../location/location.page";
+import { LocationModalComponent } from "../shared/components/location-modal/location-modal.component";
 import { Router } from "@angular/router";
 
 @Component({
@@ -19,7 +19,7 @@ export class RegisterPage implements OnInit {
 
   async selectLocation() {
     const modal = await this.modalController.create({
-      component: LocationPage
+      component: LocationModalComponent
     });
     return await modal.present();
   }

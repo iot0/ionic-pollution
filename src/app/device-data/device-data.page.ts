@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActionSheetController, ModalController } from "@ionic/angular";
-import { ReportingFormComponent } from "../components/reporting-form/reporting-form.component";
+import { ReportingFormComponent } from "../shared/components/reporting-form/reporting-form.component";
 
 enum PollutionStatus {
   Nothing = 1,

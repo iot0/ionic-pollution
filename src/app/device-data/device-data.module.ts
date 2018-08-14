@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { DeviceDataPage } from './device-data.page';
-import { ComponentsModule } from '../components/components.module';
+import { ComponentsModule } from '../shared/components/components.module';
 
 const routes: Routes = [
   {
