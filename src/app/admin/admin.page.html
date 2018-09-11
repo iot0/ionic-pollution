@@ -5,16 +5,35 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="/assets/user.png"/>
-          </ion-avatar>
-          <ion-label>
-            <h2>Finn</h2>
-            <h3>PPM value is greater than 2000, please help.</h3>
-            <p>Near Ulloor , in trivandrum.</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
+  <ng-container *ngIf='(data$|async) as res'>
+    <ng-container *ngIf='res.data;else notificationTemplate;'>
+      <ion-card *ngFor="let data of res.data">
+        <ion-card-header class="place-header">
+          <ion-card-title>User :{{data?.User?.FullName}}</ion-card-title>
+          <ion-card-subtitle>Message :({{data?.Value}}) {{data?.Message}}</ion-card-subtitle>
+          <ion-fab vertical="top" horizontal="end">
+            <ion-fab-button [appLocation]='data?.User?.LatLng' noSelection='true' color='secondary'>
+              <ion-icon name="compass"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </ion-card-header>
+      </ion-card>
+    </ng-container>
+    <ng-template #notificationTemplate>
+      <ng-container *ngIf='res.error||res.empty;else loadingTemplate;'>
+        <div class="item-center" [hidden]='!res.error'>
+          Something went wrong , Try again later .
+        </div>
+        <div class="item-center" [hidden]='!res.empty'>
+          List is empty.
+        </div>
+      </ng-container>
+      <ng-template #loadingTemplate>
+        <div class="item-center">
+          <ion-spinner name="lines"></ion-spinner>
+        </div>
+      </ng-template>
+    </ng-template>
+  </ng-container>
+
 </ion-content>

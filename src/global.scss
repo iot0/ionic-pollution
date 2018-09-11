@@ -10,3 +10,55 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+
+
+//custom
+.display-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.display-full {
+  height: 100%;
+  width: 100%;
+}
+
+.display-column {
+  flex-direction: column;
+}
+
+.modal-toaster {
+  z-index: 9999999;
+}
+
+.item-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.place-img {
+  min-height: 200px;
+  width: 100%;
+  background-image: url("/assets/images/empty.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.place-header{
+    overflow: initial;
+  }
+
+  .kh-col-2{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+  }

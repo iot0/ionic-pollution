@@ -1,21 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabsPage } from './tabs.page';
+import { DeviceSyncPage } from './device-sync.page';
 
-describe('TabsPage', () => {
-  let component: TabsPage;
-  let fixture: ComponentFixture<TabsPage>;
+describe('DeviceSyncPage', () => {
+  let component: DeviceSyncPage;
+  let fixture: ComponentFixture<DeviceSyncPage>;
 
-  beforeEach(async () => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TabsPage],
+      declarations: [ DeviceSyncPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
-  });
+    })
+    .compileComponents();
+  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabsPage);
+    fixture = TestBed.createComponent(DeviceSyncPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

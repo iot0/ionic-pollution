@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color='secondary'>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Report to Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-divider>
+      <ion-label>
+        <ion-text color="dark">
+          <h2>Full Name :{{user.FullName}}</h2>
+        </ion-text>
+      </ion-label>
+    </ion-item-divider>
+    <ion-item-divider>
+      <ion-label>
+        <ion-text color="dark">
+          <h2>Air quality :{{value}}</h2>
+        </ion-text>
+      </ion-label>
+    </ion-item-divider>
+    <ion-item-divider>
+      <ion-label>
+        <ion-text color="dark">
+          <h2>Message</h2>
+        </ion-text>
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-textarea #message required type="text" placeholder="Enter the message you want to attach with your current ppm value ."></ion-textarea>
+    </ion-item>
+    <div padding>
+      <ion-button color="primary" expand="full" (click)='onSubmit(message.value)'>Send</ion-button>
+    </div>
+  </ion-list>
+</ion-content>

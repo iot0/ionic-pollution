@@ -5,14 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DeviceDataPage } from './device-data.page';
-import { ComponentsModule } from '../shared/components/components.module';
+import { DeviceSyncPage } from './device-sync.page';
 import { SharedModule } from '../shared';
 
 const routes: Routes = [
   {
     path: '',
-    component: DeviceDataPage
+    component: DeviceSyncPage
   }
 ];
 
@@ -21,9 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: [DeviceDataPage]
+  declarations: [DeviceSyncPage]
 })
-export class DeviceDataPageModule {}
+export class DeviceSyncPageModule {}

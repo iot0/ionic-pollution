@@ -1,8 +1,8 @@
 <ion-header>
     <ion-toolbar color='primary'>
-            <ion-buttons slot="start">
-                    <ion-back-button></ion-back-button>
-                  </ion-buttons>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
         <ion-title>Login</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -10,18 +10,20 @@
 <ion-content padding class="login-container">
     <ion-card>
         <ion-list>
-            <ion-item>
-                <ion-label position='floating'>Username</ion-label>
-                <ion-input type="text" [(ngModel)]='userName'></ion-input>
-            </ion-item>
+            <form [formGroup]='loginForm' novalidate>
+                <ion-item>
+                    <ion-label>Phone Number</ion-label>
+                    <ion-input type="text" formControlName='phoneNumber'></ion-input>
+                </ion-item>
 
-            <ion-item>
-                <ion-label position='floating'>Password</ion-label>
-                <ion-input type="password"></ion-input>
-            </ion-item>
-            <div padding>
-                <ion-button (click)='onLogin()' expand="block" color="primary">Sign In</ion-button>
-            </div>
+                <ion-item>
+                    <ion-label>Password</ion-label>
+                    <ion-input type="password" formControlName='password'></ion-input>
+                </ion-item>
+                <div padding>
+                    <ion-button (click)='onLogin()' expand="block" color="primary">Sign In</ion-button>
+                </div>
+            </form>
         </ion-list>
     </ion-card>
 </ion-content>

@@ -1,9 +1,13 @@
 <ion-content>
   <div class="home-container">
-    <div padding>
-      <ion-button round routerLink='/login' expand='block' color="primary">Login</ion-button>
-      <ion-button round routerLink='/register' expand='block' color="primary">Sign Up</ion-button>
-      <ion-button round routerLink='/about' expand='block' color="primary">About Us</ion-button>
-    </div>
+    <ng-container *ngIf='userService.isLoggedIn$|async;else loginTemplate;'>
+        <ion-button round expand='block' color="primary" (click)='userService.logOut()'>Logout</ion-button>
+        <ion-button *ngIf='!(userService.isAdmin$|async)' round expand='block' color="primary" routerLink='/device-sync'>Home</ion-button>
+        <ion-button *ngIf='userService.isAdmin$|async' round expand='block' color="primary" routerLink='/admin'>Dashboard</ion-button>
+      </ng-container>
+      <ng-template #loginTemplate>
+        <ion-button round routerLink='/login' expand='block' color="primary">Login</ion-button>
+        <ion-button round routerLink='/register' expand='block' color="primary">Sign Up</ion-button>
+      </ng-template>
   </div>
 </ion-content>
