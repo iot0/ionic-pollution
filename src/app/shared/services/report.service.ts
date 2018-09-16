@@ -8,7 +8,7 @@ import { UserService } from "./user.service";
   providedIn: "root"
 })
 export class ReportService {
-    collectionName: string = "reports";
+    collectionName: string = "pollutionReports";
 
   constructor(private firestoreService: FirestoreService,
     private userService:UserService
@@ -17,8 +17,7 @@ export class ReportService {
   sendReport(message:any) {
      const user= this.userService.userSubject.value;
       const request={
-          ...message,
-          user:user
+          ...message
       };
      return this.firestoreService.add(this.collectionName, request);
   }

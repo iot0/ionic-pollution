@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
         .subscribe((res: User) => {
           console.log(res);
           if (res !== null) {
-            if (res.Role !== UserRole.Admin) {
+            if (res.Role != UserRole.Admin) {
               this.router.navigate(["/device-sync"]);
             } else {
               this.router.navigate(["/admin"]);

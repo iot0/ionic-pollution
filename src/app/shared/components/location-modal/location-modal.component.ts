@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from "@angular/core";
+import { Component, OnInit, ViewChild,Input } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { KhMapsDirective } from "../../../../libs/kh-maps/src/lib/kh-maps.directive";
 @Component({
@@ -8,8 +8,8 @@ import { KhMapsDirective } from "../../../../libs/kh-maps/src/lib/kh-maps.direct
 })
 export class LocationModalComponent implements OnInit {
   loading: boolean = true;
+  @Input("enableSelection") enableSelection=false;
   selectedLoc;
-  @Input("noSelection") noSelection=true;
   marker: any;
   @ViewChild("khMaps")
   khMaps: KhMapsDirective;
@@ -18,8 +18,6 @@ export class LocationModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.khMaps);
-    console.log(this.marker);
   }
 
   onClose() {

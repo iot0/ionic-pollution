@@ -15,7 +15,7 @@ import { UserRole } from "../models/user-role";
   providedIn: "root"
 })
 export class UserService {
-  userCollectionName: string = "users";
+  userCollectionName: string = "pollutionUsers";
 
   userSubject: BehaviorSubject<User> = new BehaviorSubject(null);
 

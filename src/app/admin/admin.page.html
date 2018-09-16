@@ -10,7 +10,11 @@
       <ion-card *ngFor="let data of res.data">
         <ion-card-header class="place-header">
           <ion-card-title>User :{{data?.User?.FullName}}</ion-card-title>
-          <ion-card-subtitle>Message :({{data?.Value}}) {{data?.Message}}</ion-card-subtitle>
+          <ion-item>
+            <ion-label text-wrap>
+              Message :({{data?.Value}}) {{data?.Message}}
+            </ion-label>
+          </ion-item>
           <ion-fab vertical="top" horizontal="end">
             <ion-fab-button [appLocation]='data?.User?.LatLng' noSelection='true' color='secondary'>
               <ion-icon name="compass"></ion-icon>
