@@ -7,23 +7,25 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding class="login-container">
-    <ion-card>
-        <ion-list>
-            <form [formGroup]='loginForm' novalidate>
-                <ion-item>
-                    <ion-label>Phone Number</ion-label>
-                    <ion-input type="text" formControlName='phoneNumber'></ion-input>
-                </ion-item>
+<ion-content padding>
+    <div class="login-container">
+        <ion-card>
+            <ion-list>
+                <form [formGroup]='loginForm' novalidate>
+                    <ion-item>
+                        <ion-label>Phone Number</ion-label>
+                        <ion-input type="text" formControlName='phoneNumber'></ion-input>
+                    </ion-item>
 
-                <ion-item>
-                    <ion-label>Password</ion-label>
-                    <ion-input type="password" formControlName='password'></ion-input>
-                </ion-item>
-                <div padding>
-                    <ion-button (click)='onLogin()' expand="block" color="primary">Sign In</ion-button>
-                </div>
-            </form>
-        </ion-list>
-    </ion-card>
+                    <ion-item>
+                        <ion-label>Password</ion-label>
+                        <ion-input type="password" formControlName='password'></ion-input>
+                    </ion-item>
+                    <div padding>
+                        <ion-button (click)='onLogin()' expand="block" color="primary">Sign In</ion-button>
+                    </div>
+                </form>
+            </ion-list>
+        </ion-card>
+    </div>
 </ion-content>

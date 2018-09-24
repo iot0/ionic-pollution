@@ -3,6 +3,8 @@ import { ReportService } from '../shared/services/report.service';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from '../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +18,9 @@ export class AdminPage implements OnInit {
   constructor(
     private reportService: ReportService,
     public loadingController: LoadingController,
-    public toastController: ToastController
+    public toastController: ToastController,
+    public userService: UserService,
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -33,5 +37,10 @@ export class AdminPage implements OnInit {
         else this.data$.next({ empty: true });
         console.log(res);
       });
+  }
+  logOut() {
+    this.userService.logOut().subscribe(() => {
+      this.router.navigate(["/home"]);
+    });
   }
 }

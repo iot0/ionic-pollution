@@ -1,27 +1,33 @@
 <ion-header>
   <ion-toolbar color='primary'>
     <ion-title>Admin Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logOut()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ng-container *ngIf='(data$|async) as res'>
     <ng-container *ngIf='res.data;else notificationTemplate;'>
-      <ion-card *ngFor="let data of res.data">
-        <ion-card-header class="place-header">
-          <ion-card-title>User :{{data?.User?.FullName}}</ion-card-title>
-          <ion-item>
-            <ion-label text-wrap>
-              Message :({{data?.Value}}) {{data?.Message}}
-            </ion-label>
-          </ion-item>
-          <ion-fab vertical="top" horizontal="end">
-            <ion-fab-button [appLocation]='data?.User?.LatLng' noSelection='true' color='secondary'>
-              <ion-icon name="compass"></ion-icon>
-            </ion-fab-button>
-          </ion-fab>
-        </ion-card-header>
-      </ion-card>
+      <ion-list>
+        <ion-item *ngFor="let data of res.data">
+          <ion-label>
+            <ion-text color='primary'>
+              <h2>{{data?.User?.FullName}}</h2>
+            </ion-text>
+            <h3>Ph. {{data?.User.PhoneNumber}}</h3>
+            <ion-text text-wrap>
+              <p> Message :({{data?.Value}}) {{data?.Message}}</p>
+            </ion-text>
+          </ion-label>
+          <ion-fab-button [appLocation]='data?.User.LatLng' color='secondary' slot='end' *ngIf='data?.User.LatLng'>
+            <ion-icon name="compass"></ion-icon>
+          </ion-fab-button>
+        </ion-item>
+      </ion-list>
     </ng-container>
     <ng-template #notificationTemplate>
       <ng-container *ngIf='res.error||res.empty;else loadingTemplate;'>

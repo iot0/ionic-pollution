@@ -77,7 +77,11 @@ export class KhMapsDirective {
     console.log("Loading Google Maps SDK");
 
     return new Promise((resolve, reject) => {
-      if (!this.mapsLoaded) {
+      const isGoogleMapLoaded =
+        "google" in window &&
+        typeof google === "object" &&
+        typeof google.maps === "object";
+      if (!this.mapsLoaded && !isGoogleMapLoaded) {
         Network.getStatus().then(
           status => {
             if (status.connected) {
@@ -130,7 +134,7 @@ export class KhMapsDirective {
           }
         );
       } else {
-        reject("SDK already loaded");
+        resolve(true);
       }
     });
   }

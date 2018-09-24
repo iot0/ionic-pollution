@@ -2,5 +2,9 @@
   "appId": "net.keephacking.iot_pollution",
   "appName": "iot-pollution",
   "bundledWebRuntime": false,
-  "webDir": "www"
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true
+  }
 }
